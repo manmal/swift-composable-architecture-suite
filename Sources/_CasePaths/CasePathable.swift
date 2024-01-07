@@ -1,4 +1,4 @@
-import XCTestDynamicOverlay
+import _XCTestDynamicOverlay
 
 /// A type that provides a collection of all of its case paths.
 ///

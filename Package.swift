@@ -55,11 +55,11 @@ let package = Package(
             name: "_SwiftUINavigationCore",
             targets: ["_SwiftUINavigationCore"]
         ),
+        .library(name: "_XCTestDynamicOverlay", targets: ["_XCTestDynamicOverlay"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-syntax", from: "509.0.0"),
-        .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.0.0"),
     ],
     targets: [
         // ComposableArchitecture
@@ -76,7 +76,7 @@ let package = Package(
                 "_IdentifiedCollections",
                 "_OrderedCollections",
                 "_SwiftUINavigationCore",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         .macro(
@@ -91,7 +91,7 @@ let package = Package(
             name: "_CasePaths",
             dependencies: [
                 "_CasePathsMacros",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         .macro(
@@ -106,7 +106,7 @@ let package = Package(
             name: "_Clocks",
             dependencies: [
                 "_ConcurrencyExtras",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         // Collections
@@ -133,7 +133,7 @@ let package = Package(
         .target(
             name: "_CustomDump",
             dependencies: [
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         // CombineSchedulers
@@ -141,7 +141,7 @@ let package = Package(
           name: "_CombineSchedulers",
           dependencies: [
             "_ConcurrencyExtras",
-            .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+            "_XCTestDynamicOverlay",
           ]
         ),
         // Dependencies
@@ -151,14 +151,14 @@ let package = Package(
                 "_Clocks",
                 "_CombineSchedulers",
                 "_ConcurrencyExtras",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         .target(
             name: "_DependenciesMacros",
             dependencies: [
                 "_DependenciesMacrosPlugin",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
         .macro(
@@ -187,8 +187,10 @@ let package = Package(
             name: "_SwiftUINavigationCore",
             dependencies: [
                 "_CustomDump",
-                .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
+                "_XCTestDynamicOverlay",
             ]
         ),
+        // XCTestDynamicOverlay
+        .target(name: "_XCTestDynamicOverlay"),
     ]
 )

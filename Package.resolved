@@ -26,15 +26,6 @@
         "revision" : "6ad4ea24b01559dde0773e3d091f1b9e36175036",
         "version" : "509.0.2"
       }
-    },
-    {
-      "identity" : "xctest-dynamic-overlay",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
-      "state" : {
-        "revision" : "23cbf2294e350076ea4dbd7d5d047c1e76b03631",
-        "version" : "1.0.2"
-      }
     }
   ],
   "version" : 2

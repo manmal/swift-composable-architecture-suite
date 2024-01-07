@@ -1,7 +1,7 @@
 #if canImport(Combine)
   import Combine
   import Foundation
-  import XCTestDynamicOverlay
+  import _XCTestDynamicOverlay
 
   /// A scheduler that causes the current XCTest test case to fail if it is used.
   ///

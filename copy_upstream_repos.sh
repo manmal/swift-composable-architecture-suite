@@ -23,7 +23,7 @@ for subdir in "$base_dir"/*; do
         if [ -d "$sources_path" ]; then
             # Copy only the directories from the Sources directory
             for item in "$sources_path"/*; do
-                if [[ -d "$item" && $(basename "$item") =~ ^[A-Z] && ! $(basename "$item") == Benchmark* && ! $(basename "$item") == XCTest* ]]; then
+                if [[ -d "$item" && $(basename "$item") =~ ^[A-Z] && ! $(basename "$item") == Benchmark* ]]; then
                     cp -r "$item" "$dest_dir/"
                 fi
             done

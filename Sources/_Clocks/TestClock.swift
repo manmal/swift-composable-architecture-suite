@@ -1,7 +1,7 @@
 #if swift(>=5.7) && (canImport(RegexBuilder) || !os(macOS) && !targetEnvironment(macCatalyst))
   import _ConcurrencyExtras
   import Foundation
-  import XCTestDynamicOverlay
+  import _XCTestDynamicOverlay
 
   /// A clock whose time can be controlled in a deterministic manner.
   ///

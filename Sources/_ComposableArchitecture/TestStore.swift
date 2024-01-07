@@ -3,7 +3,7 @@ import Combine
 import _ConcurrencyExtras
 import _CustomDump
 import Foundation
-import XCTestDynamicOverlay
+import _XCTestDynamicOverlay
 
 /// A testable runtime for a reducer.
 ///
@@ -1431,7 +1431,7 @@ extension TestStore where State: Equatable {
   ///     "_CasePaths",
   ///     "_ComposableArchitecture",
   ///     "_IdentifiedCollections",
-  ///     "XCTestDynamicOverlay",
+  ///     "_XCTestDynamicOverlay",
   ///   ]
   /// }
   /// ```
@@ -1535,7 +1535,7 @@ extension TestStore where State: Equatable {
     ///     "_CasePaths",
     ///     "_ComposableArchitecture",
     ///     "_IdentifiedCollections",
-    ///     "XCTestDynamicOverlay",
+    ///     "_XCTestDynamicOverlay",
     ///   ]
     /// }
     /// ```

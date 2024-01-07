@@ -134,6 +134,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>_XCTestDynamicOverlay.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>swift-composable-architecture-suite-Package.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -203,6 +208,76 @@
 			<true/>
 		</dict>
 		<key>SwiftUINavigationCore</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_CasePaths</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_Clocks</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_Collections</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_ComposableArchitecture</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_ConcurrencyExtras</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_CustomDump</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_Dependencies</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_DependenciesMacros</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_DequeModule</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_IdentifiedCollections</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_OrderedCollections</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_SwiftUINavigation</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_SwiftUINavigationCore</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>_XCTestDynamicOverlay</key>
 		<dict>
 			<key>primary</key>
 			<true/>

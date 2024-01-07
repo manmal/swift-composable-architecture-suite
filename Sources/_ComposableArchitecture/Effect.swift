@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 import SwiftUI
-import XCTestDynamicOverlay
+import _XCTestDynamicOverlay
 
 public struct Effect<Action> {
   @usableFromInline

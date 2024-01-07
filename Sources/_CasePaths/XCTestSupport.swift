@@ -1,5 +1,5 @@
 import Foundation
-@_spi(CurrentTestCase) import XCTestDynamicOverlay
+@_spi(CurrentTestCase) import _XCTestDynamicOverlay
 
 #if swift(>=5.9)
   @available(

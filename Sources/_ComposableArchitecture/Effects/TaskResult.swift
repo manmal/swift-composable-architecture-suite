@@ -1,4 +1,4 @@
-import XCTestDynamicOverlay
+import _XCTestDynamicOverlay
 
 /// A value that represents either a success or a failure. This type differs from Swift's `Result`
 /// type in that it uses only one generic for the success case, leaving the failure case as an

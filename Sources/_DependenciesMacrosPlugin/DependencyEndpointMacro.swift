@@ -124,7 +124,7 @@ public enum DependencyEndpointMacro: AccessorMacro, PeerMacro {
     }
     unimplementedDefault.statements.insert(
       """
-      XCTestDynamicOverlay.XCTFail("Unimplemented: '\(raw: unescapedIdentifier)'")
+      _XCTestDynamicOverlay.XCTFail("Unimplemented: '\(raw: unescapedIdentifier)'")
       """,
       at: unimplementedDefault.statements.startIndex
     )

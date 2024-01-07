@@ -1,1 +1,1 @@
-@_exported import XCTestDynamicOverlay
+@_exported import _XCTestDynamicOverlay

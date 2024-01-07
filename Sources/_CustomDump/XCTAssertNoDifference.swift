@@ -1,4 +1,4 @@
-import XCTestDynamicOverlay
+import _XCTestDynamicOverlay
 
 /// Asserts that two values have no difference.
 ///
