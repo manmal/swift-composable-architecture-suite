@@ -24,7 +24,7 @@ declare -a dependencies=(
     "https://github.com/pointfreeco/swift-case-paths swift-case-paths 1.1.0"
     "https://github.com/pointfreeco/swift-concurrency-extras swift-concurrency-extras 1.1.0"
     "https://github.com/pointfreeco/swift-custom-dump swift-custom-dump 1.0.0"
-    "https://github.com/pointfreeco/swift-dependencies swift-dependencies 1.0.0"
+    "https://github.com/pointfreeco/swift-dependencies swift-dependencies 1.1.5"
     "https://github.com/pointfreeco/swift-identified-collections swift-identified-collections 1.0.0"
     "https://github.com/pointfreeco/swiftui-navigation swiftui-navigation 1.1.0"
     "https://github.com/pointfreeco/xctest-dynamic-overlay xctest-dynamic-overlay 1.0.0"
