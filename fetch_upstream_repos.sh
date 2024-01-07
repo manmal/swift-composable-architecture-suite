@@ -15,6 +15,7 @@ add_git_subtree() {
 
 # List of dependencies as URL, package name, and version
 declare -a dependencies=(
+    "https://github.com/apple/swift-composable-architecture swift-composable-architecture 1.5.6"
     "https://github.com/apple/swift-collections swift-collections 1.0.2"
     "https://github.com/apple/swift-docc-plugin swift-docc-plugin 1.0.0"
     "https://github.com/apple/swift-docc-symbolkit swift-docc-symbolkit 1.0.0"
