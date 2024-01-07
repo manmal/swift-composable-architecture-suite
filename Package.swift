@@ -13,47 +13,47 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "ComposableArchitecture",
-            targets: ["ComposableArchitecture"]
+            name: "_ComposableArchitecture",
+            targets: ["_ComposableArchitecture"]
         ),
         .library(
-            name: "CasePaths",
-            targets: ["CasePaths"]
+            name: "_CasePaths",
+            targets: ["_CasePaths"]
         ),
         .library(
-            name: "Clocks",
-            targets: ["Clocks"]
+            name: "_Clocks",
+            targets: ["_Clocks"]
         ),
-        .library(name: "Collections", targets: ["Collections"]),
-        .library(name: "DequeModule", targets: ["DequeModule"]),
-        .library(name: "OrderedCollections", targets: ["OrderedCollections"]),
+        .library(name: "_Collections", targets: ["_Collections"]),
+        .library(name: "_DequeModule", targets: ["_DequeModule"]),
+        .library(name: "_OrderedCollections", targets: ["_OrderedCollections"]),
         .library(
-            name: "ConcurrencyExtras",
-            targets: ["ConcurrencyExtras"]
-        ),
-        .library(
-            name: "CustomDump",
-            targets: ["CustomDump"]
+            name: "_ConcurrencyExtras",
+            targets: ["_ConcurrencyExtras"]
         ),
         .library(
-            name: "Dependencies",
-            targets: ["Dependencies"]
+            name: "_CustomDump",
+            targets: ["_CustomDump"]
         ),
         .library(
-            name: "DependenciesMacros",
-            targets: ["DependenciesMacros"]
+            name: "_Dependencies",
+            targets: ["_Dependencies"]
         ),
         .library(
-            name: "IdentifiedCollections",
-            targets: ["IdentifiedCollections"]
+            name: "_DependenciesMacros",
+            targets: ["_DependenciesMacros"]
         ),
         .library(
-            name: "SwiftUINavigation",
-            targets: ["SwiftUINavigation"]
+            name: "_IdentifiedCollections",
+            targets: ["_IdentifiedCollections"]
         ),
         .library(
-            name: "SwiftUINavigationCore",
-            targets: ["SwiftUINavigationCore"]
+            name: "_SwiftUINavigation",
+            targets: ["_SwiftUINavigation"]
+        ),
+        .library(
+            name: "_SwiftUINavigationCore",
+            targets: ["_SwiftUINavigationCore"]
         ),
     ],
     dependencies: [
@@ -64,23 +64,23 @@ let package = Package(
     targets: [
         // ComposableArchitecture
         .target(
-            name: "ComposableArchitecture",
+            name: "_ComposableArchitecture",
             dependencies: [
-                "ComposableArchitectureMacros",
-                "CasePaths",
-                "CombineSchedulers",
-                "ConcurrencyExtras",
-                "CustomDump",
-                "Dependencies",
-                "DependenciesMacros",
-                "IdentifiedCollections",
-                "OrderedCollections",
-                "SwiftUINavigationCore",
+                "_ComposableArchitectureMacros",
+                "_CasePaths",
+                "_CombineSchedulers",
+                "_ConcurrencyExtras",
+                "_CustomDump",
+                "_Dependencies",
+                "_DependenciesMacros",
+                "_IdentifiedCollections",
+                "_OrderedCollections",
+                "_SwiftUINavigationCore",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         .macro(
-            name: "ComposableArchitectureMacros",
+            name: "_ComposableArchitectureMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
@@ -88,14 +88,14 @@ let package = Package(
         ),
         // CasePaths
         .target(
-            name: "CasePaths",
+            name: "_CasePaths",
             dependencies: [
-                "CasePathsMacros",
+                "_CasePathsMacros",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         .macro(
-            name: "CasePathsMacros",
+            name: "_CasePathsMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
@@ -103,66 +103,66 @@ let package = Package(
         ),
         // Clocks
         .target(
-            name: "Clocks",
+            name: "_Clocks",
             dependencies: [
-                "ConcurrencyExtras",
+                "_ConcurrencyExtras",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         // Collections
         .target(
-            name: "Collections",
+            name: "_Collections",
             dependencies: [
-                "DequeModule",
-                "OrderedCollections",
+                "_DequeModule",
+                "_OrderedCollections",
             ],
-            path: "Sources/Collections",
+            path: "Sources/_Collections",
             exclude: ["CMakeLists.txt"]
         ),
         .target(
-          name: "DequeModule",
+          name: "_DequeModule",
           exclude: ["CMakeLists.txt"]),
         .target(
-          name: "OrderedCollections",
+          name: "_OrderedCollections",
           exclude: ["CMakeLists.txt"]),
         // ConcurrencyExtras
         .target(
-            name: "ConcurrencyExtras"
+            name: "_ConcurrencyExtras"
         ),
         // CustomDump
         .target(
-            name: "CustomDump",
+            name: "_CustomDump",
             dependencies: [
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         // CombineSchedulers
         .target(
-          name: "CombineSchedulers",
+          name: "_CombineSchedulers",
           dependencies: [
-            "ConcurrencyExtras",
+            "_ConcurrencyExtras",
             .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
           ]
         ),
         // Dependencies
         .target(
-            name: "Dependencies",
+            name: "_Dependencies",
             dependencies: [
-                "Clocks",
-                "CombineSchedulers",
-                "ConcurrencyExtras",
+                "_Clocks",
+                "_CombineSchedulers",
+                "_ConcurrencyExtras",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         .target(
-            name: "DependenciesMacros",
+            name: "_DependenciesMacros",
             dependencies: [
-                "DependenciesMacrosPlugin",
+                "_DependenciesMacrosPlugin",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
         .macro(
-            name: "DependenciesMacrosPlugin",
+            name: "_DependenciesMacrosPlugin",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
@@ -170,23 +170,23 @@ let package = Package(
         ),
         // IdentifiedCollections
         .target(
-            name: "IdentifiedCollections",
+            name: "_IdentifiedCollections",
             dependencies: [
-                "OrderedCollections",
+                "_OrderedCollections",
             ]
         ),
         // SwiftUINavigation
         .target(
-            name: "SwiftUINavigation",
+            name: "_SwiftUINavigation",
             dependencies: [
-                "SwiftUINavigationCore",
-                "CasePaths",
+                "_SwiftUINavigationCore",
+                "_CasePaths",
             ]
         ),
         .target(
-            name: "SwiftUINavigationCore",
+            name: "_SwiftUINavigationCore",
             dependencies: [
-                "CustomDump",
+                "_CustomDump",
                 .product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay"),
             ]
         ),
