@@ -128,10 +128,10 @@
   ///
   /// When testing your code on an external CI server you may run into errors such as the following:
   ///
-  /// > Error: CasePathsMacros Target 'CasePathsMacros' must be enabled before it can be used.
+  /// > Error: _CasePathsMacros Target '_CasePathsMacros' must be enabled before it can be used.
   /// >
   /// >
-  /// > ComposableArchitectureMacros Target 'ComposableArchitectureMacros' must be enabled
+  /// > _ComposableArchitectureMacros Target '_ComposableArchitectureMacros' must be enabled
   /// before it can be used.
   ///
   ///

@@ -1,4 +1,4 @@
-@_spi(Reflection) import CasePaths
+@_spi(Reflection) import _CasePaths
 import Combine
 
 /// A property wrapper for state that can be presented.

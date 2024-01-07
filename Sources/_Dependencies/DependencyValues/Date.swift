@@ -18,11 +18,11 @@ extension DependencyValues {
   /// ```
   ///
   /// To override the current date in tests, you can override the generator using
-  /// ``with_Dependencies(_:operation:)-4uz6m``:
+  /// ``withDependencies(_:operation:)-4uz6m``:
   ///
   /// ```swift
   /// // Provision model with overridden dependencies
-  /// let model = with_Dependencies {
+  /// let model = withDependencies {
   ///   $0.date.now = Date(timeIntervalSince1970: 1234567890)
   /// } operation: {
   ///   FeatureModel()

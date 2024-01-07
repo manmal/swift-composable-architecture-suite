@@ -32,7 +32,7 @@
     /// ```
     /// func testFeature() {
     ///   let mainRunLoop = RunLoop.test
-    ///   let model = with_Dependencies {
+    ///   let model = withDependencies {
     ///     $0.mainRunLoop = mainRunLoop
     ///   } operation: {
     ///     TimerModel()

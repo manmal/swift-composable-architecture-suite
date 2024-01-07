@@ -1,5 +1,5 @@
 #if canImport(SwiftUI)
-  import CustomDump
+  import _CustomDump
   import SwiftUI
 
   /// An equatable description of SwiftUI `Text`. Useful for storing rich text in feature models

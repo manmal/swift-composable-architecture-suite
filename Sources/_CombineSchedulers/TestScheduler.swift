@@ -1,6 +1,6 @@
 #if canImport(Combine)
   import Combine
-  import ConcurrencyExtras
+  import _ConcurrencyExtras
   import Foundation
 
   /// A scheduler whose current time and execution can be controlled in a deterministic manner.

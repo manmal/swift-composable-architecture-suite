@@ -253,7 +253,7 @@ extension VariableDeclSyntax {
       guard
         case let .attribute(attribute) = $0,
         let attributeName = attribute.attributeName.as(IdentifierTypeSyntax.self)?.name.text,
-        ["DependencyEndpoint"].qualified("DependenciesMacros").contains(attributeName)
+        ["DependencyEndpoint"].qualified("_DependenciesMacros").contains(attributeName)
       else { return false }
       return true
     }

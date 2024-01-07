@@ -28,7 +28,7 @@ extension DependencyValues {
   /// additionally reports test failures if invoked, unless explicitly overridden.
   ///
   /// To test a feature that depends on UUID generation, you can override its generator using
-  /// ``with_Dependencies(_:operation:)-4uz6m`` to override the underlying ``UUIDGenerator``:
+  /// ``withDependencies(_:operation:)-4uz6m`` to override the underlying ``UUIDGenerator``:
   ///
   ///   * ``UUIDGenerator/incrementing`` for reproducible UUIDs that count up from
   ///     `00000000-0000-0000-0000-000000000000`.
@@ -40,7 +40,7 @@ extension DependencyValues {
   ///
   /// ```swift
   /// func testFeature() {
-  ///   let model = with_Dependencies {
+  ///   let model = withDependencies {
   ///     $0.uuid = .incrementing
   ///   } operation: {
   ///     TodosModel()

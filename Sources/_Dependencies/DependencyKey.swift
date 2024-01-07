@@ -84,7 +84,7 @@ public protocol DependencyKey: TestDependencyKey {
   /// ``DependencyContext/preview``:
   ///
   /// ```swift
-  /// with_Dependencies {
+  /// withDependencies {
   ///   $0.context = .preview
   /// } operation: {
   ///   // _Dependencies accessed here default to their "preview" value
@@ -99,7 +99,7 @@ public protocol DependencyKey: TestDependencyKey {
   /// ``DependencyContext/test``:
   ///
   /// ```swift
-  /// with_Dependencies {
+  /// withDependencies {
   ///   $0.context = .test
   /// } operation: {
   ///   // _Dependencies accessed here default to their "test" value
@@ -129,7 +129,7 @@ public protocol TestDependencyKey {
   /// ``DependencyContext/preview``:
   ///
   /// ```swift
-  /// with_Dependencies {
+  /// withDependencies {
   ///   $0.context = .preview
   /// } operation: {
   ///   // _Dependencies accessed here default to their "preview" value
@@ -144,7 +144,7 @@ public protocol TestDependencyKey {
   /// ``DependencyContext/test``:
   ///
   /// ```swift
-  /// with_Dependencies {
+  /// withDependencies {
   ///   $0.context = .test
   /// } operation: {
   ///   // _Dependencies accessed here default to their "test" value
@@ -170,7 +170,7 @@ extension DependencyKey {
   ///
   /// ```swift
   /// func testFeatureThatUsesMyDependency() {
-  ///   with_Dependencies {
+  ///   withDependencies {
   ///     $0.myDependency = .mock  // Override dependency
   ///   } operation: {
   ///     // Test feature with dependency overridden
@@ -226,7 +226,7 @@ extension DependencyKey {
         To fix, override \
         \(DependencyValues.currentDependency.name.map { "'\($0)'" } ?? "the dependency") with a \
         test value. If you are using the Composable Architecture, mutate the 'dependencies' \
-        property on your 'TestStore'. Otherwise, use 'with_Dependencies' to define a scope for the \
+        property on your 'TestStore'. Otherwise, use 'withDependencies' to define a scope for the \
         override. If you'd like to provide a default value for all tests, implement the \
         'testValue' requirement of the 'DependencyKey' protocol.
         """

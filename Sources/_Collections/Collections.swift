@@ -9,5 +9,5 @@
 //
 //===----------------------------------------------------------------------===//
 
-@_exported import DequeModule
-@_exported import OrderedCollections
+@_exported import _DequeModule
+@_exported import _OrderedCollections

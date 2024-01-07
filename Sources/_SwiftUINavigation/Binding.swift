@@ -1,5 +1,5 @@
 #if canImport(SwiftUI)
-  import CasePaths
+  import _CasePaths
   import SwiftUI
 
   extension Binding {

@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 
 extension IdentifiedArray: Encodable where Element: Encodable {
   @inlinable

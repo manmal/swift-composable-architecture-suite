@@ -1,5 +1,5 @@
 #if swift(>=5.7) && (canImport(RegexBuilder) || !os(macOS) && !targetEnvironment(macCatalyst))
-  import ConcurrencyExtras
+  import _ConcurrencyExtras
   import Foundation
   import XCTestDynamicOverlay
 

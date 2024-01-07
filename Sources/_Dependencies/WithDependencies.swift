@@ -7,7 +7,7 @@ import Foundation
 /// ``DependencyValues/date`` dependency to be a particular date, you can do:
 ///
 /// ```swift
-/// with_Dependencies {
+/// withDependencies {
 ///   $0.date.now = Date(timeIntervalSince1970: 1234567890)
 /// } operation: {
 ///   // References to date in here are pinned to 1234567890.
@@ -20,7 +20,7 @@ import Foundation
 ///   - operation: An operation to perform wherein dependencies have been overridden.
 /// - Returns: The result returned from `operation`.
 @discardableResult
-public func with_Dependencies<R>(
+public func withDependencies<R>(
   _ updateValuesForOperation: (inout DependencyValues) throws -> Void,
   operation: () throws -> R
 ) rethrows -> R {
@@ -46,7 +46,7 @@ public func with_Dependencies<R>(
 /// ``DependencyValues/date`` dependency to be a particular date, you can do:
 ///
 /// ```swift
-/// await with_Dependencies {
+/// await withDependencies {
 ///   $0.date.now = Date(timeIntervalSince1970: 1234567890)
 /// } operation: {
 ///   // References to date in here are pinned to 1234567890.
@@ -60,7 +60,7 @@ public func with_Dependencies<R>(
 /// - Returns: The result returned from `operation`.
 @_unsafeInheritExecutor
 @discardableResult
-public func with_Dependencies<R>(
+public func withDependencies<R>(
   _ updateValuesForOperation: (inout DependencyValues) async throws -> Void,
   operation: () async throws -> R
 ) async rethrows -> R {
@@ -84,13 +84,13 @@ public func with_Dependencies<R>(
 ///
 /// - Parameters:
 ///   - model: An object with dependencies. The given model should have at least one `@Dependency`
-///     property, or should have been initialized and returned from a `with_Dependencies` operation.
+///     property, or should have been initialized and returned from a `withDependencies` operation.
 ///   - updateValuesForOperation: A closure for updating the current dependency values for the
 ///     duration of the operation.
 ///   - operation: The operation to run with the updated dependencies.
 /// - Returns: The result returned from `operation`.
 @discardableResult
-public func with_Dependencies<Model: AnyObject, R>(
+public func withDependencies<Model: AnyObject, R>(
   from model: Model,
   _ updateValuesForOperation: (inout DependencyValues) throws -> Void,
   operation: () throws -> R,
@@ -102,7 +102,7 @@ public func with_Dependencies<Model: AnyObject, R>(
     runtimeWarn(
       """
       You are trying to propagate dependencies to a child model from a model with no dependencies. \
-      To fix this, the given '\(Model.self)' must be returned from another 'with_Dependencies' \
+      To fix this, the given '\(Model.self)' must be returned from another 'withDependencies' \
       closure, or the class must hold at least one '@Dependency' property.
       """,
       file: file,
@@ -110,7 +110,7 @@ public func with_Dependencies<Model: AnyObject, R>(
     )
     return try operation()
   }
-  return try with_Dependencies {
+  return try withDependencies {
     $0 = values.merging(DependencyValues._current)
     try updateValuesForOperation(&$0)
   } operation: {
@@ -127,17 +127,17 @@ public func with_Dependencies<Model: AnyObject, R>(
 ///
 /// - Parameters:
 ///   - model: An object with dependencies. The given model should have at least one `@Dependency`
-///     property, or should have been initialized and returned from a `with_Dependencies` operation.
+///     property, or should have been initialized and returned from a `withDependencies` operation.
 ///   - operation: The operation to run with the updated dependencies.
 /// - Returns: The result returned from `operation`.
 @discardableResult
-public func with_Dependencies<Model: AnyObject, R>(
+public func withDependencies<Model: AnyObject, R>(
   from model: Model,
   operation: () throws -> R,
   file: StaticString? = nil,
   line: UInt? = nil
 ) rethrows -> R {
-  try with_Dependencies(
+  try withDependencies(
     from: model,
     { _ in },
     operation: operation,
@@ -151,7 +151,7 @@ public func with_Dependencies<Model: AnyObject, R>(
 ///
 /// - Parameters:
 ///   - model: An object with dependencies. The given model should have at least one `@Dependency`
-///     property, or should have been initialized and returned from a `with_Dependencies`
+///     property, or should have been initialized and returned from a `withDependencies`
 ///       operation.
 ///   - updateValuesForOperation: A closure for updating the current dependency values for the
 ///     duration of the operation.
@@ -159,7 +159,7 @@ public func with_Dependencies<Model: AnyObject, R>(
 /// - Returns: The result returned from `operation`.
 @_unsafeInheritExecutor
 @discardableResult
-public func with_Dependencies<Model: AnyObject, R>(
+public func withDependencies<Model: AnyObject, R>(
   from model: Model,
   _ updateValuesForOperation: (inout DependencyValues) async throws -> Void,
   operation: () async throws -> R,
@@ -172,14 +172,14 @@ public func with_Dependencies<Model: AnyObject, R>(
       """
       You are trying to propagate dependencies to a child model from a model with no \
       dependencies. To fix this, the given '\(Model.self)' must be returned from another \
-      'with_Dependencies' closure, or the class must hold at least one '@Dependency' property.
+      'withDependencies' closure, or the class must hold at least one '@Dependency' property.
       """,
       file: file,
       line: line
     )
     return try await operation()
   }
-  return try await with_Dependencies {
+  return try await withDependencies {
     $0 = values.merging(DependencyValues._current)
     try await updateValuesForOperation(&$0)
   } operation: {
@@ -196,19 +196,19 @@ public func with_Dependencies<Model: AnyObject, R>(
 ///
 /// - Parameters:
 ///   - model: An object with dependencies. The given model should have at least one `@Dependency`
-///     property, or should have been initialized and returned from a `with_Dependencies`
+///     property, or should have been initialized and returned from a `withDependencies`
 ///     operation.
 ///   - operation: The operation to run with the updated dependencies.
 /// - Returns: The result returned from `operation`.
 @_unsafeInheritExecutor
 @discardableResult
-public func with_Dependencies<Model: AnyObject, R>(
+public func withDependencies<Model: AnyObject, R>(
   from model: Model,
   operation: () async throws -> R,
   file: StaticString? = nil,
   line: UInt? = nil
 ) async rethrows -> R {
-  try await with_Dependencies(
+  try await withDependencies(
     from: model,
     { _ in },
     operation: operation,
@@ -228,13 +228,13 @@ public func with_Dependencies<Model: AnyObject, R>(
 /// For example, suppose you want to use `DispatchQueue.main.asyncAfter` to execute some logic after
 /// a delay, and that logic needs to make use of dependencies. In order to guarantee that
 /// dependencies used in the escaping closure of `asyncAfter` reflect the correct values, you should
-/// use `withEscaped_Dependencies`:
+/// use `withEscapedDependencies`:
 ///
 /// ```swift
-/// withEscaped_Dependencies { dependencies in
+/// withEscapedDependencies { dependencies in
 ///   DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 ///     dependencies.yield {
-///       // All code in here will use dependencies at the time of calling withEscaped_Dependencies.
+///       // All code in here will use dependencies at the time of calling withEscapedDependencies.
 ///     }
 ///   }
 /// }
@@ -250,14 +250,14 @@ public func with_Dependencies<Model: AnyObject, R>(
 /// ``DependencyValues/Continuation/yield(_:)-42ttb`` and not outside:
 ///
 /// ```swift
-/// withEscaped_Dependencies { dependencies in
+/// withEscapedDependencies { dependencies in
 ///   DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 ///     dependencies.yield {
-///       with_Dependencies {
+///       withDependencies {
 ///         $0.apiClient = .mock
 ///       } operation: {
 ///         // All code in here will use dependencies at the time of calling
-///         // withEscaped_Dependencies except the API client will be mocked.
+///         // withEscapedDependencies except the API client will be mocked.
 ///       }
 ///     }
 ///   }
@@ -266,7 +266,7 @@ public func with_Dependencies<Model: AnyObject, R>(
 ///
 /// - Parameter operation: A closure that takes a ``DependencyValues/Continuation`` value for
 ///   propagating dependencies past an escaping closure boundary.
-public func withEscaped_Dependencies<R>(
+public func withEscapedDependencies<R>(
   _ operation: (DependencyValues.Continuation) throws -> R
 ) rethrows -> R {
   try operation(DependencyValues.Continuation())
@@ -274,11 +274,11 @@ public func withEscaped_Dependencies<R>(
 
 /// Propagates the current dependencies to an escaping context.
 ///
-/// See the documentation of ``withEscaped_Dependencies(_:)-5xvi3`` for more information.
+/// See the documentation of ``withEscapedDependencies(_:)-5xvi3`` for more information.
 ///
 /// - Parameter operation: A closure that takes a ``DependencyValues/Continuation`` value for
 ///   propagating dependencies past an escaping closure boundary.
-public func withEscaped_Dependencies<R>(
+public func withEscapedDependencies<R>(
   _ operation: (DependencyValues.Continuation) async throws -> R
 ) async rethrows -> R {
   try await operation(DependencyValues.Continuation())
@@ -287,17 +287,17 @@ public func withEscaped_Dependencies<R>(
 extension DependencyValues {
   /// A capture of dependencies to use in an escaping context.
   ///
-  /// See the docs of ``withEscaped_Dependencies(_:)-5xvi3`` for more information.
+  /// See the docs of ``withEscapedDependencies(_:)-5xvi3`` for more information.
   public struct Continuation: Sendable {
     let dependencies = DependencyValues._current
 
     /// Access the propagated dependencies in an escaping context.
     ///
-    /// See the docs of ``withEscaped_Dependencies(_:)-5xvi3`` for more information.
+    /// See the docs of ``withEscapedDependencies(_:)-5xvi3`` for more information.
     /// - Parameter operation: A closure which will have access to the propagated dependencies.
     public func yield<R>(_ operation: () throws -> R) rethrows -> R {
       // TODO: Should `yield` be renamed to `restore`?
-      try with_Dependencies {
+      try withDependencies {
         $0 = self.dependencies
       } operation: {
         try operation()
@@ -306,10 +306,10 @@ extension DependencyValues {
 
     /// Access the propagated dependencies in an escaping context.
     ///
-    /// See the docs of ``withEscaped_Dependencies(_:)-5xvi3`` for more information.
+    /// See the docs of ``withEscapedDependencies(_:)-5xvi3`` for more information.
     /// - Parameter operation: A closure which will have access to the propagated dependencies.
     public func yield<R>(_ operation: () async throws -> R) async rethrows -> R {
-      try await with_Dependencies {
+      try await withDependencies {
         $0 = self.dependencies
       } operation: {
         try await operation()

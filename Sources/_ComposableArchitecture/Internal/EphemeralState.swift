@@ -1,4 +1,4 @@
-@_spi(Reflection) import CasePaths
+@_spi(Reflection) import _CasePaths
 
 /// Loosely represents features that are only briefly shown and the first time they are interacted
 /// with they go away. Such features do not manage any behavior on the inside.

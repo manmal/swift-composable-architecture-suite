@@ -101,7 +101,7 @@ public enum DependencyEndpointMacro: AccessorMacro, PeerMacro {
       if functionType.effectSpecifiers?.throwsSpecifier != nil {
         unimplementedDefault.statements.append(
           """
-          throw DependenciesMacros.Unimplemented("\(raw: unescapedIdentifier)")
+          throw _DependenciesMacros.Unimplemented("\(raw: unescapedIdentifier)")
           """
         )
       } else if functionType.isVoid {

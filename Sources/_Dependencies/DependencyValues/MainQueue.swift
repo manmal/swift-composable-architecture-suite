@@ -32,7 +32,7 @@
     /// ```
     /// func testFeature() {
     ///   let mainQueue = DispatchQueue.test
-    ///   let model = with_Dependencies {
+    ///   let model = withDependencies {
     ///     $0.mainQueue = mainQueue.eraseToAnyScheduler()
     ///   } operation: {
     ///     TimerModel()

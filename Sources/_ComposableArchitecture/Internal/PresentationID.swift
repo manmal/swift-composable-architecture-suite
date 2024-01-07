@@ -1,4 +1,4 @@
-@_spi(Reflection) import CasePaths
+@_spi(Reflection) import _CasePaths
 
 extension PresentationState {
   var id: PresentationID? {

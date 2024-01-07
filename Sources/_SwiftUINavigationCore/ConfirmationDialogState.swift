@@ -1,5 +1,5 @@
 #if canImport(SwiftUI)
-  import CustomDump
+  import _CustomDump
   import SwiftUI
 
   /// A data type that describes the state of a confirmation dialog that can be shown to the user. The

@@ -9,7 +9,7 @@ FOLDERS_TO_PREFIX=($(find "$PARENT_DIR" -mindepth 1 -maxdepth 1 -type d -exec ba
 # Iterate over each folder name to be prefixed
 for FOLDER_NAME in "${FOLDERS_TO_PREFIX[@]}"; do
     # Find all .swift files in the current folder that are not in a *.docc subfolder
-    find "$PARENT_DIR/$FOLDER_NAME" -type f -name '*.swift' ! -path '*/.docc/*' | while read -r FILE; do
+    find "$PARENT_DIR" -type f -name '*.swift' ! -path '*/.docc/*' | while read -r FILE; do
         # Perform the import replacement
         sed -i '' "s/import ${FOLDER_NAME}/import _${FOLDER_NAME}/g" "$FILE"
         # Perform the pattern replacement, ensuring there is no alphabetic character before or after

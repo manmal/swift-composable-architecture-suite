@@ -1,7 +1,7 @@
-@_spi(Internals) import CasePaths
+@_spi(Internals) import _CasePaths
 import Combine
-import ConcurrencyExtras
-import CustomDump
+import _ConcurrencyExtras
+import _CustomDump
 import Foundation
 import XCTestDynamicOverlay
 
@@ -516,7 +516,7 @@ public final class TestStore<State, Action> {
     State: Equatable
   {
     let reducer = XCTFailContext.$current.withValue(XCTFailContext(file: file, line: line)) {
-      Dependencies.withDependencies(prepareDependencies) {
+      _Dependencies.withDependencies(prepareDependencies) {
         TestReducer(Reduce(reducer()), initialState: initialState())
       }
     }
@@ -553,7 +553,7 @@ public final class TestStore<State, Action> {
     R.Action == Action
   {
     let reducer = XCTFailContext.$current.withValue(XCTFailContext(file: file, line: line)) {
-      Dependencies.withDependencies(prepareDependencies) {
+      _Dependencies.withDependencies(prepareDependencies) {
         TestReducer(Reduce(reducer()), initialState: initialState())
       }
     }
@@ -1006,7 +1006,7 @@ extension TestStore where State: Equatable {
     case .on:
       var expectedWhenGivenPreviousState = expected
       if let updateStateToExpectedResult = updateStateToExpectedResult {
-        try Dependencies.withDependencies {
+        try _Dependencies.withDependencies {
           $0 = self.reducer.dependencies
         } operation: {
           try updateStateToExpectedResult(&expectedWhenGivenPreviousState)
@@ -1023,7 +1023,7 @@ extension TestStore where State: Equatable {
     case .off:
       var expectedWhenGivenActualState = actual
       if let updateStateToExpectedResult = updateStateToExpectedResult {
-        try Dependencies.withDependencies {
+        try _Dependencies.withDependencies {
           $0 = self.reducer.dependencies
         } operation: {
           try updateStateToExpectedResult(&expectedWhenGivenActualState)
@@ -1042,7 +1042,7 @@ extension TestStore where State: Equatable {
         if let updateStateToExpectedResult = updateStateToExpectedResult {
           _XCTExpectFailure(strict: false) {
             do {
-              try Dependencies.withDependencies {
+              try _Dependencies.withDependencies {
                 $0 = self.reducer.dependencies
               } operation: {
                 try updateStateToExpectedResult(&expectedWhenGivenPreviousState)
@@ -1428,9 +1428,9 @@ extension TestStore where State: Equatable {
   /// ```swift
   /// await store.receive(/Search.Action.searchResponse) {
   ///   $0.results = [
-  ///     "CasePaths",
+  ///     "_CasePaths",
   ///     "_ComposableArchitecture",
-  ///     "IdentifiedCollections",
+  ///     "_IdentifiedCollections",
   ///     "XCTestDynamicOverlay",
   ///   ]
   /// }
@@ -1532,9 +1532,9 @@ extension TestStore where State: Equatable {
     /// ```swift
     /// await store.receive(\.searchResponse) {
     ///   $0.results = [
-    ///     "CasePaths",
+    ///     "_CasePaths",
     ///     "_ComposableArchitecture",
-    ///     "IdentifiedCollections",
+    ///     "_IdentifiedCollections",
     ///     "XCTestDynamicOverlay",
     ///   ]
     /// }

@@ -1,5 +1,5 @@
 #if canImport(SwiftUI)
-  import CustomDump
+  import _CustomDump
   import SwiftUI
 
   public struct ButtonState<Action>: Identifiable {

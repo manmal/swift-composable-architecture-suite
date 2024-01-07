@@ -13,7 +13,7 @@
     ///
     /// ```swift
     /// // Provision model with overridden dependencies
-    /// let model = with_Dependencies {
+    /// let model = withDependencies {
     ///   let mockConfiguration = URLSessionConfiguration.ephemeral
     ///   mockConfiguration.protocolClasses = [MyMockURLProtocol.self]
     ///   $0.urlSession = URLSession(configuration: mockConfiguration)

@@ -1,4 +1,4 @@
-@_spi(Reflection) import CasePaths
+@_spi(Reflection) import _CasePaths
 import SwiftUI
 
 /// A view that observes when enum state held in a store changes cases, and provides stores to

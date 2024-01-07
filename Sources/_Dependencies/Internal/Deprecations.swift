@@ -98,61 +98,61 @@ extension AsyncThrowingStream where Failure == Error {
 }
 
 extension DependencyValues {
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withValue<Value, R>(
     _ keyPath: WritableKeyPath<DependencyValues, Value>,
     _ value: @autoclosure () -> Value,
     operation: () throws -> R
   ) rethrows -> R {
-    try with_Dependencies {
+    try withDependencies {
       $0[keyPath: keyPath] = value()
     } operation: {
       try operation()
     }
   }
 
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withValue<Value, R>(
     _ keyPath: WritableKeyPath<DependencyValues, Value>,
     _ value: @autoclosure () -> Value,
     operation: () async throws -> R
   ) async rethrows -> R {
-    try await with_Dependencies {
+    try await withDependencies {
       $0[keyPath: keyPath] = value()
     } operation: {
       try await operation()
     }
   }
 
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withValues<R>(
     _ updateValuesForOperation: (inout Self) throws -> Void,
     operation: () throws -> R
   ) rethrows -> R {
-    try with_Dependencies(updateValuesForOperation, operation: operation)
+    try withDependencies(updateValuesForOperation, operation: operation)
   }
 
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withValues<R>(
     _ updateValuesForOperation: (inout Self) throws -> Void,
     operation: () async throws -> R
   ) async rethrows -> R {
-    try await with_Dependencies(updateValuesForOperation, operation: operation)
+    try await withDependencies(updateValuesForOperation, operation: operation)
   }
 
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withTestValues<R>(
     _ updateValuesForOperation: (inout Self) throws -> Void,
     assert operation: () throws -> R
   ) rethrows -> R {
-    try with_Dependencies(updateValuesForOperation, operation: operation)
+    try withDependencies(updateValuesForOperation, operation: operation)
   }
 
-  @available(*, deprecated, message: "Use 'with_Dependencies' instead.")
+  @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withTestValues<R>(
     _ updateValuesForOperation: (inout Self) async throws -> Void,
     assert operation: () async throws -> R
   ) async rethrows -> R {
-    try await with_Dependencies(updateValuesForOperation, operation: operation)
+    try await withDependencies(updateValuesForOperation, operation: operation)
   }
 }

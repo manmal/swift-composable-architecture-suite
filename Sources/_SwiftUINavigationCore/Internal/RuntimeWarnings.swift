@@ -4,7 +4,7 @@
   @inline(__always)
   public func runtimeWarn(
     _ message: @autoclosure () -> String,
-    category: String? = "SwiftUINavigation",
+    category: String? = "_SwiftUINavigation",
     file: StaticString? = nil,
     line: UInt? = nil
   ) {

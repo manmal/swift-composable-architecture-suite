@@ -5,16 +5,16 @@
     ///
     /// This clock is type-erased so that it can be swapped out in previews and tests for another
     /// clock, like [`ImmediateClock`][immediate-clock] and [`TestClock`][test-clock] that come with
-    /// the [Clocks][swift-clocks] library (which is automatically imported and available when you
+    /// the [_Clocks][swift-clocks] library (which is automatically imported and available when you
     /// import this library).
     ///
     /// By default, a live `ContinuousClock` is supplied. When used in a testing context, an
     /// [`UnimplementedClock`][unimplemented-clock] is provided, which generates an XCTest failure
-    /// when used, unless explicitly overridden using ``with_Dependencies(_:operation:)-4uz6m``:
+    /// when used, unless explicitly overridden using ``withDependencies(_:operation:)-4uz6m``:
     ///
     /// ```swift
     /// // Provision model with overridden dependencies
-    /// let model = with_Dependencies {
+    /// let model = withDependencies {
     ///   $0.continuousClock = ImmediateClock()
     /// } operation: {
     ///   FeatureModel()
@@ -38,16 +38,16 @@
     ///
     /// This clock is type-erased so that it can be swapped out in previews and tests for another
     /// clock, like [`ImmediateClock`][immediate-clock] and [`TestClock`][test-clock] that come with
-    /// the [Clocks][swift-clocks] library (which is automatically imported and available when you
+    /// the [_Clocks][swift-clocks] library (which is automatically imported and available when you
     /// import this library).
     ///
     /// By default, a live `SuspendingClock` is supplied. When used in a testing context, an
     /// [`UnimplementedClock`][unimplemented-clock] is provided, which generates an XCTest failure
-    /// when used, unless explicitly overridden using ``with_Dependencies(_:operation:)-4uz6m``:
+    /// when used, unless explicitly overridden using ``withDependencies(_:operation:)-4uz6m``:
     ///
     /// ```swift
     /// // Provision model with overridden dependencies
-    /// let model = with_Dependencies {
+    /// let model = withDependencies {
     ///   $0.suspendingClock = ImmediateClock()
     /// } operation: {
     ///   FeatureModel()

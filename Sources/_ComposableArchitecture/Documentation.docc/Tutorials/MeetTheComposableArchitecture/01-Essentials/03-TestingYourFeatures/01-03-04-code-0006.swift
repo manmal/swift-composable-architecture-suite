@@ -23,7 +23,7 @@ final class CounterFeatureTests: XCTestCase {
     //   Dependency:
     //     NumberFactClient
     //
-    // Dependencies registered with the library are not allowed to use
+    // _Dependencies registered with the library are not allowed to use
     // their default, live implementations when run from tests.
   }
 }

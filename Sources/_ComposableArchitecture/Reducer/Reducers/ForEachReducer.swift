@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 
 /// A wrapper type for actions that can be presented in a list.
 ///
@@ -89,7 +89,7 @@ extension Reducer {
   /// ```
   ///
   /// > Tip: We are using `IdentifiedArray` from our
-  /// [Identified Collections][swift-identified-collections] library because it provides a safe
+  /// [Identified _Collections][swift-identified-collections] library because it provides a safe
   /// and ergonomic API for accessing elements from a stable ID rather than positional indices.
   ///
   /// The `forEach` forces a specific order of operations for the child and parent features. It

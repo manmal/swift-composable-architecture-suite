@@ -12,13 +12,13 @@ import Foundation
 /// ```
 ///
 /// To change a dependency for a well-defined scope you can use the
-/// ``with_Dependencies(_:operation:)-4uz6m`` method:
+/// ``withDependencies(_:operation:)-4uz6m`` method:
 ///
 /// ```swift
 /// @Dependency(\.date) var date
 /// let now = date.now
 ///
-/// with_Dependencies {
+/// withDependencies {
 ///   $0.date.now = Date(timeIntervalSinceReferenceDate: 1234567890)
 /// } operation: {
 ///   @Dependency(\.date.now) var now: Date
@@ -36,7 +36,7 @@ import Foundation
 /// > closure with a `Task`, the dependency change will propagate:
 /// >
 /// > ```
-/// > with_Dependencies {
+/// > withDependencies {
 /// >   $0.date.now = Date(timeIntervalSinceReferenceDate: 1234567890)
 /// > } operation: {
 /// >   @Dependency(\.date.now) var now: Date
@@ -78,7 +78,7 @@ import Foundation
 /// myValue  // 42
 /// ```
 ///
-/// Read the article <doc:Registering_Dependencies> for more information.
+/// Read the article <doc:RegisteringDependencies> for more information.
 public struct DependencyValues: Sendable {
   @TaskLocal public static var _current = Self()
   #if DEBUG
@@ -119,7 +119,7 @@ public struct DependencyValues: Sendable {
   /// ```
   ///
   /// You use custom dependency values the same way you use system-provided values, setting a value
-  /// with ``with_Dependencies(_:operation:)-4uz6m``, and reading values with the ``Dependency``
+  /// with ``withDependencies(_:operation:)-4uz6m``, and reading values with the ``Dependency``
   /// property wrapper.
   public subscript<Key: TestDependencyKey>(
     key: Key.Type,
@@ -174,8 +174,8 @@ public struct DependencyValues: Sendable {
   /// dependencies with a live value:
   ///
   /// ```swift
-  /// func testLive_Dependencies() {
-  ///   with_Dependencies { $0 = .live } operation: {
+  /// func testLiveDependencies() {
+  ///   withDependencies { $0 = .live } operation: {
   ///     // Make assertions using live dependencies...
   ///   }
   /// }

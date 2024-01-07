@@ -1,4 +1,4 @@
-import CustomDump
+import _CustomDump
 import SwiftUI
 
 /// A view helper that transforms a ``Store`` into a ``ViewStore`` so that its state can be observed

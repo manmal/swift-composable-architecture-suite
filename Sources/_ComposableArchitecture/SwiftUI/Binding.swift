@@ -1,4 +1,4 @@
-import CustomDump
+import _CustomDump
 import SwiftUI
 
 /// A property wrapper type that can designate properties of app state that can be directly bindable

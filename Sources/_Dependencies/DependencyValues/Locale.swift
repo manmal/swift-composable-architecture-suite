@@ -20,7 +20,7 @@ extension DependencyValues {
 
   /// ```swift
   /// // Provision model with overridden dependencies
-  /// let model = with_Dependencies {
+  /// let model = withDependencies {
   ///   $0.locale = Locale(identifier: "en_US")
   /// } operation: {
   ///   FeatureModel()

@@ -1,7 +1,7 @@
-@_spi(Reflection) import CasePaths
+@_spi(Reflection) import _CasePaths
 import Combine
 import Foundation
-import OrderedCollections
+import _OrderedCollections
 
 /// A list of data representing the content of a navigation stack.
 ///

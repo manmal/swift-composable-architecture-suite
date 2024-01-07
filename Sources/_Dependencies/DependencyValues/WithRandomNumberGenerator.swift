@@ -41,7 +41,7 @@ extension DependencyValues {
   ///
   /// ```swift
   /// func testRoll() {
-  ///   let model = with_Dependencies {
+  ///   let model = withDependencies {
   ///     $0.withRandomNumberGenerator = WithRandomNumberGenerator(LCRNG(seed: 0))
   ///   } operation: {
   ///     GameModel()

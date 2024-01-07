@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 import SwiftUI
 
 /// A Composable Architecture-friendly wrapper around `ForEach` that simplifies working with

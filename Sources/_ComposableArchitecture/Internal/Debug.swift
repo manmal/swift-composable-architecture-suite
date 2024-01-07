@@ -1,4 +1,4 @@
-import CustomDump
+import _CustomDump
 import Foundation
 
 extension String {

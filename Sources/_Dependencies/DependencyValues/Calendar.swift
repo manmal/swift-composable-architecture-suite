@@ -5,11 +5,11 @@ extension DependencyValues {
   ///
   /// By default, the calendar returned from `Calendar.autoupdatingCurrent` is supplied. When used
   /// in a testing context, access will call to `XCTFail` when invoked, unless explicitly overridden
-  /// using ``with_Dependencies(_:operation:)-4uz6m``:
+  /// using ``withDependencies(_:operation:)-4uz6m``:
   ///
   /// ```swift
   /// // Provision model with overridden dependencies
-  /// let model = with_Dependencies {
+  /// let model = withDependencies {
   ///   $0.calendar = Calendar(identifier: .gregorian)
   /// } operation: {
   ///   FeatureModel()

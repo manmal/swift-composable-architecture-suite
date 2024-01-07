@@ -1,5 +1,5 @@
 /// Improves the ergonomics of dependency clients modeled on structs and closures, as detailed in
-/// our ["Designing Dependencies"][designing-dependencies] article.
+/// our ["Designing _Dependencies"][designing-dependencies] article.
 ///
 /// To use the macro, simply apply it to the struct interface of your dependency:
 ///

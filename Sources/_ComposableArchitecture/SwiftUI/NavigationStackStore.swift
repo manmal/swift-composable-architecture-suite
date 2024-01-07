@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 import SwiftUI
 
 /// A navigation stack that is driven by a store.

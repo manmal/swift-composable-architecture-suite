@@ -8,7 +8,7 @@ extension DependencyValues {
   ///
   /// ```swift
   /// // Provision model with overridden dependencies
-  /// let model = with_Dependencies {
+  /// let model = withDependencies {
   ///   $0.timeZone = TimeZone(secondsFromGMT: 0)
   /// } operation: {
   ///   FeatureModel()

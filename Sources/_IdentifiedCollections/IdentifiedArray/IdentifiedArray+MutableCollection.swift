@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 
 extension IdentifiedArray: MutableCollection {
   @inlinable

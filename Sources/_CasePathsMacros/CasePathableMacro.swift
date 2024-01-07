@@ -4,7 +4,7 @@ import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
 public struct CasePathableMacro {
-  static let moduleName = "CasePaths"
+  static let moduleName = "_CasePaths"
   static let conformanceName = "CasePathable"
   static var qualifiedConformanceName: String { "\(Self.moduleName).\(Self.conformanceName)" }
   static var conformanceNames: [String] { [Self.conformanceName, Self.qualifiedConformanceName] }

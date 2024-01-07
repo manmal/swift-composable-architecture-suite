@@ -1,4 +1,4 @@
-import OrderedCollections
+import _OrderedCollections
 
 extension IdentifiedArray {
   /// Creates a new array from the elements in the given sequence, which must not contain duplicate

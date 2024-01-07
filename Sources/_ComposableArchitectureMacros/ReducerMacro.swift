@@ -27,7 +27,7 @@ extension ReducerMacro: ExtensionMacro {
     }
     let ext: DeclSyntax =
       """
-      extension \(type.trimmed): ComposableArchitecture.Reducer {}
+      extension \(type.trimmed): _ComposableArchitecture.Reducer {}
       """
     return [ext.cast(ExtensionDeclSyntax.self)]
   }
@@ -112,13 +112,13 @@ extension ReducerMacro: MemberAttributeMacro {
         else { continue }
         guard
           !attributeName.starts(with: "ReducerBuilder"),
-          !attributeName.starts(with: "ComposableArchitecture.ReducerBuilder")
+          !attributeName.starts(with: "_ComposableArchitecture.ReducerBuilder")
         else { return [] }
       }
       return [
         AttributeSyntax(
           attributeName: IdentifierTypeSyntax(
-            name: .identifier("ComposableArchitecture.ReducerBuilder<Self.State, Self.Action>")
+            name: .identifier("_ComposableArchitecture.ReducerBuilder<Self.State, Self.Action>")
           )
         )
       ]
@@ -130,7 +130,7 @@ extension ReducerMacro: MemberAttributeMacro {
 
 extension Array where Element == String {
   var withQualified: Self {
-    self.flatMap { [$0, "ComposableArchitecture.\($0)"] }
+    self.flatMap { [$0, "_ComposableArchitecture.\($0)"] }
   }
 }
 

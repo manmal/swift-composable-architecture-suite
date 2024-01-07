@@ -122,7 +122,7 @@ import SwiftUI
 /// However, by leaving scheduling out of the ``Store`` we get to test these aspects of our effects
 /// if we so desire, or we can ignore if we prefer. We have that flexibility.
 ///
-/// [uischeduler]: https://github.com/pointfreeco/combine-schedulers/blob/main/Sources/CombineSchedulers/UIScheduler.swift
+/// [uischeduler]: https://github.com/pointfreeco/combine-schedulers/blob/main/Sources/_CombineSchedulers/UIScheduler.swift
 ///
 /// #### Thread safety checks
 ///
