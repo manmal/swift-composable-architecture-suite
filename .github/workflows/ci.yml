@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  library:
+    runs-on: macos-13
+    strategy:
+      matrix:
+        config: ['debug', 'release']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Select Xcode 14.3
+        run: sudo xcode-select -s /Applications/Xcode_14.3.app
+      - name: Run ${{ matrix.config }} tests
+        run: CONFIG=${{ matrix.config }} make test-all
+      - name: Build for library evolution
+        run: CONFIG=${{ matrix.config }} make build-for-library-evolution
+
+  ubuntu-tests:
+    strategy:
+      matrix:
+        config: ['debug', 'release']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: swift test -c ${{ matrix.config }}
